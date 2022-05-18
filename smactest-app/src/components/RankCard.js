@@ -10,9 +10,9 @@ export default function RankCard({ranks, title, bg, color}) {
 
     return (
         <>
-            <motion.div className="card-container"  variants={cardVariants} style={{backgroundColor: `${bg}`}} onClick={() => changeGroup(title)}>
+            <motion.div className="card-container"  variants={cardVariants} style={{backgroundImage: `linear-gradient(180deg, ${bg[0]}, ${bg[1]})`}} onClick={() => changeGroup(title)}>
                 {group === title ? 
-                <div>
+                <motion.div variants={rankVariants}>
                     <CloseButton className="card-button" 
                         onClick={(e) => {
                             e.stopPropagation()
@@ -23,17 +23,18 @@ export default function RankCard({ranks, title, bg, color}) {
                                 changeRank(rank.name)
                                 navigate('/questions')
                             }}
-                            variants={rankVariants}
+                            variants={sashVariants}
+                            whileTap={{scale:0.9}}
                             >
                                 <p className='sash' style={{backgroundColor: `${rank.color}`, color: `${color}`}}>
                                     {rank.name}
                                     {rank.stripe && <span className='stripe' style={{backgroundColor: `${rank.stripe}`, right: '20px'}}/>}
-                                    {rank.stripe && rank.stripeNum === 2 && <span className='stripe' style={{backgroundColor: `${rank.stripe}`, right: `${20 * rank.stripeNum + 10}px`}}/>}
+                                    {rank.stripe && (rank.stripeNum === 2) && <span className='stripe' style={{backgroundColor: `${rank.stripe}`, right: `${20 * rank.stripeNum + 10}px`}}/>}
                                 </p>
                                
                             </motion.div>
                     ))}
-                </div> : <div className="card-title">{title}</div>}
+                </motion.div> : <div className="card-title">{title}</div>}
             </motion.div>
         </>
     )
@@ -50,9 +51,21 @@ const cardVariants = {
 
 const rankVariants = {
     hidden: {
-        x: '-100vw'
+        opacity:0
     },
     visible: {
-        x:0,
+        opacity:1,
+        transition: {
+            staggerChildren: 0.1
+        }
+    }
+}
+
+const sashVariants = {
+    hidden: {
+        opacity:0
+    },
+    visible: {
+        opacity:1
     }
 }
