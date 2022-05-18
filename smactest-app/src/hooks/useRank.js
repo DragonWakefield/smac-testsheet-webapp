@@ -5,7 +5,7 @@ export const useRank = () => {
     const context = useContext(RankContext)
 
     if (context === undefined) {
-        throw new Error("useTheme() must be used inside a ThemeProvider")
+        throw new Error("useRank() must be used inside a RankProvider")
     }
 
     return context

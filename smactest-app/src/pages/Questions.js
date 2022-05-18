@@ -1,5 +1,11 @@
-export default function Questions({ rank }) {
+import { useRank } from "../hooks/useRank"
+
+export default function Questions() {
+  const { rank } = useRank()
   return (
-    <div>Questions</div>
+    <div>
+      <h1>Questions</h1>
+      <p>{rank}</p>
+    </div>
   )
 }

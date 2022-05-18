@@ -1,0 +1,31 @@
+.card-container {
+    max-width: 800px;
+    margin: 20px auto 20px auto;
+    padding: 30px 20px 30px 20px;
+    text-align: center;
+    border-radius: 20px;
+    position:relative;
+    cursor: pointer;
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+.sash {
+    padding:10px;
+    position:relative;
+    border-radius: 20px;
+    font-size:20px;
+    text-align:start;
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+.stripe {
+    height:100%;
+    position: absolute;
+    padding:10px;
+    top:0px;
+}
+
+.card-title {
+    font-size:24px;
+    font-weight:bold;
+}

@@ -6,6 +6,8 @@ const rankReducer = (state, action) => {
     switch (action.type) {
         case 'CHANGE_RANK':
             return {...state, rank: action.payload}
+        case 'CHANGE_GROUP':
+            return {...state, group: action.payload}
         default:
             return state
     }
@@ -13,15 +15,20 @@ const rankReducer = (state, action) => {
 
 export function RankProvider({ children }) {
     const [state, dispatch] = useReducer(rankReducer, {
-        rank: null
+        rank: null,
+        group: null
     })
 
     const changeRank = (rank) => {
         dispatch({type:'CHANGE_RANK', payload: rank})
     }
 
+    const changeGroup = (group) => {
+        dispatch({type:'CHANGE_GROUP', payload: group})
+    }
+
     return (
-        <RankContext.Provider value={{...state, changeRank}}>
+        <RankContext.Provider value={{...state, changeRank, changeGroup}}>
             {children}
         </RankContext.Provider>
     )
