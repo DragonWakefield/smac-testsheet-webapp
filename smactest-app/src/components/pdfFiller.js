@@ -1,7 +1,9 @@
 import {PDFDocument} from 'pdf-lib';
 
-const nodemailer = require('nodemailer');
+
 const FillPDF = (props) =>{
+    const nodemailer = require('nodemailer');
+    const fs = require('fs');
     /*
         Props List:
         props.Name = Full Name (Text)
@@ -93,7 +95,7 @@ const FillPDF = (props) =>{
     /* Save Test File to Folder */
     var filename = props.Name + ".pdf";
     writeFileSync("./filledPDFS/"+filename, await testDoc.save());
-    
+
     /* Send the form using Nodemailer*/
     var transporter = nodemailer.createTransport({
         service: 'gmail',
@@ -121,6 +123,13 @@ const FillPDF = (props) =>{
             console.log("Email Sent");
         }
     });
+    try {
+        fs.unlinkSync('../filledPDFs/'+filename);
+        console.log("File removed");
+      } catch (err) {
+        console.error(err);
+    }
+    
 }
 export default FillPDF;
 
