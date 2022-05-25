@@ -1,0 +1,26 @@
+.questions-container {
+}
+
+ul {
+    list-style-type: none;
+    margin-bottom: 20px;
+}
+
+li {
+    cursor: pointer;
+    margin-bottom: 2px;
+}
+
+li span.active{
+    font-weight: bold;
+    color: #b3002d;
+}
+
+li span.active::before{
+    content: '>';
+    position: relative;
+    top: -2px;
+    margin-right: 6px;
+    transform: scale(0.8, 1);
+    display: inline-block;
+}

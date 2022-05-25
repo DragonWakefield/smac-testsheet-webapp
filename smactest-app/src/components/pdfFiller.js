@@ -1,9 +1,10 @@
 import {PDFDocument} from 'pdf-lib';
 
+const nodemailer = require('nodemailer');
+const fs = require('fs');
 
-const FillPDF = (props) =>{
-    const nodemailer = require('nodemailer');
-    const fs = require('fs');
+const FillPDF = async (props) =>{
+
     /*
         Props List:
         props.Name = Full Name (Text)
