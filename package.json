@@ -1,5 +1,11 @@
 {
   "dependencies": {
-    "pspdfkit": "^2022.2.1"
+    "@emailjs/browser": "^3.6.2",
+    "downloadjs": "^1.4.7",
+    "nodemailer": "^6.7.5",
+    "nodemailer-react": "^1.0.2",
+    "os-browserify": "^0.3.0",
+    "pspdfkit": "^2022.2.1",
+    "webpack": "^5.72.1"
   }
 }

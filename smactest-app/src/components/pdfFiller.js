@@ -1,10 +1,12 @@
 import {PDFDocument} from 'pdf-lib';
-
-const nodemailer = require('nodemailer');
-const fs = require('fs');
-
+import download from 'downloadjs';
+import emailjs from '@emailjs/browser';
+import UploadTo from '../components/SendDropBox.js';
+//import nodemailer from "nodemailer";
 const FillPDF = async (props) =>{
-
+    
+    const reader = new FileReader();
+  
     /*
         Props List:
         props.Name = Full Name (Text)
@@ -22,9 +24,10 @@ const FillPDF = async (props) =>{
 
         props.PAY <- How people with pay = CASH, CREDIT/DEBIT, CHARGE TO ACCOUNT
     */
-    const testsheet = null;
-    if (props.rank == "purple"){
-        testsheet = fs.readFile("../testpdfs/blueApplication.pdf");
+    let testsheet = null;
+    
+    if (props.Rank == "purple"){
+        testsheet = await fetch("./blueApplication.pdf").then(res => res.arrayBuffer());
     }
     const testDoc = await PDFDocument.load(testsheet);
 
@@ -93,11 +96,28 @@ const FillPDF = async (props) =>{
     question = question.concat(props.Q10);
     testform.getCheckBox(question).check();
 
-    /* Save Test File to Folder */
-    var filename = props.Name + ".pdf";
-    writeFileSync("./filledPDFS/"+filename, await testDoc.save());
+    
+    const pdfbytes = await testDoc.save();
+    download(pdfbytes, "testform.pdf", "./blueApplication.pdf")
 
-    /* Send the form using Nodemailer*/
+    //UploadTo({file: pdfbytes});
+    /* Save Test File to Folder */
+    //var filename = props.Name + ".pdf";
+    //writeFileSync("./filledPDFS/"+filename, await testDoc.save());
+
+    /*Send File via Emailjs */
+
+    /* Send File via Nodemailer-react*/
+    /*
+    const mailerConfig= {
+        defaults:{},
+        transport: {
+            host
+        }
+    }
+
+    /* Send the form using Nodemailer
+    const nodemailer = require("nodemailer");
     var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth:{
@@ -124,13 +144,15 @@ const FillPDF = async (props) =>{
             console.log("Email Sent");
         }
     });
+    /*
     try {
         fs.unlinkSync('../filledPDFs/'+filename);
         console.log("File removed");
       } catch (err) {
         console.error(err);
     }
-    
+    */
+   
 }
 export default FillPDF;
 

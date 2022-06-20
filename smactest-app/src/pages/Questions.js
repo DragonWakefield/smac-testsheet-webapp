@@ -107,52 +107,54 @@ export default function Questions() {
   const { rank } = useRank()
   const [error, setError] = useState("")
   const [answers, setAnswers] = useState({
-    q1: null, 
-    q2: null, 
-    q3: null,
-    q4: null,
-    q5: null,
-    q6: null,
-    q7: null,
-    q8: null,
-    q9: null,
-    q10: null
+    Q1: null, 
+    Q2: null, 
+    Q3: null,
+    Q4: null,
+    Q5: null,
+    Q6: null,
+    Q7: null,
+    Q8: null,
+    Q9: null,
+    Q10: null
   })
 
   const addAnswer = (q, a) => {
     if (q === 0) {
-      setAnswers({...answers, q1: a + 1})
+      setAnswers({...answers, Q1: a + 1})
     } else if (q === 1) {
-      setAnswers({...answers, q2: a + 1})
+      setAnswers({...answers, Q2: a + 1})
     } else if (q === 2) {
-      setAnswers({...answers, q3: a + 1})
+      setAnswers({...answers, Q3: a + 1})
     } else if (q === 3) {
-      setAnswers({...answers, q4: a + 1})
+      setAnswers({...answers, Q4: a + 1})
     } else if (q === 4) {
-      setAnswers({...answers, q5: a + 1})
+      setAnswers({...answers, Q5: a + 1})
     } else if (q === 5) {
-      setAnswers({...answers, q6: a + 1})
+      setAnswers({...answers, Q6: a + 1})
     } else if (q === 6) {
-      setAnswers({...answers, q7: a + 1})
+      setAnswers({...answers, Q7: a + 1})
     } else if (q === 7) {
-      setAnswers({...answers, q8: a + 1})
+      setAnswers({...answers, Q8: a + 1})
     } else if (q === 8) {
-      setAnswers({...answers, q9: a + 1})
+      setAnswers({...answers, Q9: a + 1})
     } else {
-      setAnswers({...answers, q10: a + 1})
+      setAnswers({...answers, Q10: a + 1})
     }
+    console.log(answers)
   }
 
   const handleClick = () => {
     setError(null)
-    if (!answers.q1 || !answers.q2 || 
-        !answers.q3 || !answers.q4 || 
-        !answers.q5 || !answers.q6 || 
-        !answers.q7 || !answers.q8 || 
-        !answers.q9 || !answers.q10) {
+    if (!answers.Q1 || !answers.Q2 || 
+        !answers.Q3 || !answers.Q4 || 
+        !answers.Q5 || !answers.Q6 || 
+        !answers.Q7 || !answers.Q8 || 
+        !answers.Q9 || !answers.Q10) {
       setError('Select an answer for all questions')
-      return
+      //return
     }
+    FillPDF({Name: "l", Date: "2020-01-01", TestTime: "12:00", TestDue: "",Rank: "purple",...answers});
 
 
   }
@@ -172,7 +174,7 @@ export default function Questions() {
             >{q}</motion.h4>
             <ul className="ps-4">
               {rankChoices[rank.toLowerCase()][qidx].map((choice, cidx) => {
-                let selected = answers[`q${qidx + 1}`] === cidx + 1 ? 'active' : ''
+                let selected = answers[`Q${qidx + 1}`] === cidx + 1 ? 'active' : ''
                 return (
                 <motion.li
                   initial={{opacity:0, scale: 0, originX:0}}
