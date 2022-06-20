@@ -1,0 +1,44 @@
+input {
+    padding:10px;
+    border-radius:10px;
+    color: #b3002d;
+    border:0.5px solid #b3002d;
+    border-style:double;
+}
+
+input:focus {
+    outline:none;
+}
+
+
+ul {
+    list-style-type: none;
+    margin-bottom: 20px;
+}
+
+li {
+    cursor: pointer;
+    margin-bottom: 10px;
+    border:0.5px solid #b3002d;
+    padding:10px;
+    border-radius: 10px;; 
+}
+
+li.active{
+    font-weight: bold;
+    background-color: #b3002d;
+}
+
+li.active span {
+    color: white;
+}
+
+/* li.active::before{
+    content: '>';
+    position: relative;
+    top: -2px;
+    margin-right: 6px;
+    transform: scale(0.8, 1);
+    display: inline-block;
+    color:white;
+} */
