@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 
-export default function UserFormQuestions({name, setName, pTest, setPTest}) {
+export default function UserFormQuestions({name, setName, pTest, setPTest, rankPrices, rank}) {
     return (
         <div className="questions">
             <div className='my-4 px-4 py-3'>
@@ -25,6 +25,17 @@ export default function UserFormQuestions({name, setName, pTest, setPTest}) {
                     initial={{scale: 0, originX:0}}
                     whileInView={{scale:1}}
                     viewport={{margin:'-10px'}}
+                    className="alert alert-info"
+                >
+                    Your test will be ${rankPrices[`${rank}`]}
+                </motion.h4>
+            </div>
+            <div className="my-4 px-4 pb-3">
+                <motion.h4
+                    initial={{scale: 0, originX:0}}
+                    whileInView={{scale:0.7}}
+                    viewport={{margin:'-10px'}}
+                    className="text-secondary"
                 >
                     If you require private test - Additional $25
                 </motion.h4>

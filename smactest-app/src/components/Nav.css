@@ -3,5 +3,15 @@
 }
 
 .navbar h1{
- color: #FBC740;
+    color: #FBC740;
 }
+
+/* 
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    vertical-align: middle;
+} */

@@ -1,8 +1,13 @@
-body {
-    /* background-image: linear-gradient(to bottom right,#34000d,#b3002d);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover; */
-    height:100%;
-    margin:0
+@font-face {
+    font-family: 'Koulen';
+    src: url(./assets/Koulen-Regular.ttf) format('truetype');
 }
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    /* font-family: 'Koulen'; */
+ }
+

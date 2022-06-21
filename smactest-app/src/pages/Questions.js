@@ -14,11 +14,11 @@ import UserFormQuestions from "../components/UserFormQuestions"
 import rankQuestions from "./rankData/rankQuestions"
 import rankChoices from "./rankData/rankChoices"
 import rankPrices from "./rankData/rankPrices"
-
+import rankPromotions from "./rankData/rankPromotions"
 
 export default function Questions() {
   const { addDocument } = useFirestore('sheets')
-  const { rank } = useRank()
+  const { rank, group } = useRank()
   const [error, setError] = useState("")
   const [success, setSuccess] = useState(false)
   const [name, setName] = useState('')
@@ -85,14 +85,22 @@ export default function Questions() {
     setSuccess(true)
   }
 
+  const promotion = rankPromotions[`${rank}`]
+
   return (
     <div className="questions-container">
       {!success &&
         <>
-          <h1>Questions</h1>
-          <p>Select the correct answer</p>
-          <p>{rank}</p>
-          <UserFormQuestions name={name} setName={setName} pTest={pTest} setPTest={setPTest}/>
+          <h1 className="fw-bold my-5">
+            <span style={{color: `${promotion.from.color}`}}>
+              {promotion.from.name}
+            </span> to&nbsp;
+            <span style={{color: `${promotion.to.color}`}}>
+              {promotion.to.name}
+            </span> Questions
+          </h1>
+          <p className="alert alert-warning">Select the correct answers</p>
+          <UserFormQuestions name={name} setName={setName} pTest={pTest} setPTest={setPTest} rankPrices={rankPrices} rank={rank}/>
           <RankFormQuestions rankQuestions={rankQuestions} rankChoices={rankChoices} rank={rank} answers={answers} addAnswer={addAnswer}/>
           {error && <Alert variant='danger'>{error}</Alert>}
           <Button className="ms-4 mb-5" variant="outline-danger" onClick={handleClick}>Submit</Button>
