@@ -1,0 +1,26 @@
+.navbar {
+    background: linear-gradient(180deg, #800000, #880929)
+}
+
+.navbar a{
+    
+}
+
+.navbar-brand a {
+    text-decoration: none;
+    color: #FBC740;
+}
+
+.navbar-brand a:hover {
+    color: #FBC740;
+}
+
+/* 
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    vertical-align: middle;
+} */
