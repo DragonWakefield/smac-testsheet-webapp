@@ -45,7 +45,7 @@ export default function UserFormQuestions({name, setName, pTest, setPTest, rankP
                         onClick={() => setPTest(true)}
                         initial={{opacity:0, scale: 0, originX:0}}
                         whileHover={{x: 3, originX:0, color: '#b3002d'}} 
-                        whileTap={{scale: 0.9, originX:0, color: '#b3002d'}} 
+                        whileTap={{scaleY: 0.8, originX:0, color: '#b3002d'}} 
                         whileInView={{scale:1, opacity:1}}
                         viewport={{margin:'-20px'}}
                     ><span>Yes</span></motion.li>
@@ -54,7 +54,7 @@ export default function UserFormQuestions({name, setName, pTest, setPTest, rankP
                         onClick={() => setPTest(false)}
                         initial={{opacity:0, scale: 0, originX:0}}
                         whileHover={{x: 3, originX:0, color: '#b3002d'}} 
-                        whileTap={{scale: 0.9, originX:0, color: '#b3002d'}} 
+                        whileTap={{scaleY: 0.8, originX:0, color: '#b3002d'}} 
                         whileInView={{scale:1, opacity:1}}
                         viewport={{margin:'-20px'}}
                     ><span>No</span></motion.li>

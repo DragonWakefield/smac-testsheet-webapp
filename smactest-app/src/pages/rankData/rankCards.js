@@ -26,4 +26,6 @@ const Basics = {
     color: 'white'
   }
   
-  export default [Basics, Level1, Level2, Level3]
+  const allRanks = [Basics, Level1, Level2, Level3]
+
+  export default allRanks

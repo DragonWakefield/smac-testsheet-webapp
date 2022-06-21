@@ -18,7 +18,7 @@ import rankPromotions from "./rankData/rankPromotions"
 
 export default function Questions() {
   const { addDocument } = useFirestore('sheets')
-  const { rank, group } = useRank()
+  const { rank } = useRank()
   const [error, setError] = useState("")
   const [success, setSuccess] = useState(false)
   const [name, setName] = useState('')

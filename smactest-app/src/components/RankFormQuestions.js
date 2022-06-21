@@ -17,7 +17,7 @@ export default function RankFormQuestions({ rankQuestions, rankChoices, rank, an
                     <motion.li
                         initial={{opacity:0, scale: 0, originX:0}}
                         whileHover={{x: 3, originX:0, color: '#b3002d'}} 
-                        whileTap={{scale: 0.9, originX:0, color: '#b3002d'}} 
+                        whileTap={{scaleY: 0.8, originX:0, color: '#b3002d'}} 
                         whileInView={{scale:1, opacity:1}}
                         viewport={{margin:'-20px'}}
                         key={choice} 
