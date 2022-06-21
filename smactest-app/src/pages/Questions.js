@@ -1,117 +1,26 @@
+// Utilities and CSS
 import { useRank } from "../hooks/useRank"
 import { useState } from "react"
-import { Alert, Button, Form } from "react-bootstrap"
-import { motion } from "framer-motion"
+import { Alert, Button } from "react-bootstrap"
 import { useFirestore } from "../hooks/useFirestore"
 import './Questions.css'
 // import FillPDF from "../components/pdfFiller"
 
-    /*
-        Props List:
-        props.Name = Full Name (Text)
-        props.Date = Test Date (Text)
-        props.TestTime  = Test Time (Text)
-        props.TestDue = Test Due (Checkbox)
-        props.Applicant1 = Applicant1 (Bool/Checkbox)
-        props.Applicant2 = Applicant2 (Bool/Checkbox)
-        props.Signature = Signature (Text)
-        props.Q1 = (1-4) (Int/Checkbox)
-        props.Q2 = (1-4) (Int/Checkbox)
-        .
-        .
-        props.Q10 = (1-4) (Checkbox)
+// Components
+import RankFormQuestions from "../components/RankFormQuestions"
+import UserFormQuestions from "../components/UserFormQuestions"
 
-        props.PAY <- How people with pay = CASH, CREDIT/DEBIT, CHARGE TO ACCOUNT
-    */
+// Data
+import rankQuestions from "./rankData/rankQuestions"
+import rankChoices from "./rankData/rankChoices"
+import rankPrices from "./rankData/rankPrices"
 
-const rankPrices = {
-  purple: 60
-}
-
-const rankQuestions = {
-  purple: [
-    'What is Sparring?', 
-    'What is Self-Defense?', 
-    'What part of the foot is used for a Round Kick?', 
-    'What are the 3 kicks I learned in Purple Belt?', 
-    'How many of the 8pt Open Hand Blocks have you learned?', 
-    'The primary arts used in our grappling are:', 
-    'How many Animals are part of the Shaolin Training system?',
-    'Bodhidharma (or Tamo) is:', 
-    'The Shaolin Temple is located in:', 
-    'The Striking point of Immortal Hand is:'
-  ]
-}
-
-const rankChoices = {
-  purple: [
-    [
-      'A sophisticated game of Tag',
-      'An all-out fight with rules',
-      'A chance to hurt someone using Kung-fu',
-      'A test of one\'s might as a fighter'
-    ],
-    [
-      'A chance to hurt someone using Karate',
-      'Applications based on real-life scenarios',
-      'An exercise in skilled paranoia',
-      'A different way to combine basics'
-    ],
-    [
-      'The Heel',
-      'The Side Blade of the foot',
-      'The \'Ball\' of the foot',
-      'The Top or \'Bridge\' of the foot'
-    ],
-    [
-      'Front, Crescent, Spear',
-      'Round, Rev. Crescent, Hook',
-      'Side to Front, Round, Hook',
-      'Stepping stool, X-Step, Hook'
-    ],
-    [
-      '1 - 2',
-      '1 - 4',
-      '1 - 6',
-      '1 - 8'
-    ],
-    [
-      'Chin-Na & Shuai Jiao',
-      'Judo & Ninjutsu',
-      'Brazilian Jujutsu & MMA',
-      'All of the above'
-    ],
-    [
-      '7',
-      '6',
-      '5',
-      '4'
-    ],
-    [
-      'An Indian dish of flat bread & rice',
-      'A Buddhist monk/warrior from India',
-      'The founder of the Shaolin Temple',
-      'I don\'t know'
-    ],
-    [
-      'Okinawa',
-      'Japan',
-      'China',
-      'Tibet'
-    ],
-    [
-      'The back of the hand',
-      'The bottom two finger knuckles',
-      'Tips of first two fingers',
-      'The bottom of the hand'
-    ]
-  ]
-}
 
 export default function Questions() {
   const { addDocument } = useFirestore('sheets')
   const { rank } = useRank()
   const [error, setError] = useState("")
+  const [success, setSuccess] = useState(false)
   const [name, setName] = useState('')
   const [pTest, setPTest] = useState(false)
   const [answers, setAnswers] = useState({
@@ -153,6 +62,10 @@ export default function Questions() {
 
   const handleClick = async () => {
     setError(null)
+    if (name === '') {
+      setError('Please enter your name')
+      return
+    }
     if (!answers.Q1 || !answers.Q2 || 
         !answers.Q3 || !answers.Q4 || 
         !answers.Q5 || !answers.Q6 || 
@@ -169,91 +82,47 @@ export default function Questions() {
       ...answers
     }
     await addDocument(doc)
+    setSuccess(true)
   }
 
   return (
-    <div>
-      <h1>Questions</h1>
-      <p>Select the correct answer</p>
-      <p>{rank}</p>
-      <div className="questions-container">
-        <div className='my-4 px-4 py-3'>
-          <motion.h4 
-              initial={{scale: 0, originX:0}}
-              whileInView={{scale:1}}
-              viewport={{margin:'-10px'}}
-          >Name</motion.h4>
-            <motion.input 
-              type='text' 
-              value={name} 
-              onChange={(e) => setName(e.target.value)}
-              className='ms-4 mt-3'
-              initial={{scale: 0, originX:0}}
-              whileInView={{scale:1}}
-              whileHover={{x: 3, originX:0}}
-              viewport={{margin:'-10px'}}
-          ></motion.input>
+    <div className="questions-container">
+      {!success &&
+        <>
+          <h1>Questions</h1>
+          <p>Select the correct answer</p>
+          <p>{rank}</p>
+          <UserFormQuestions name={name} setName={setName} pTest={pTest} setPTest={setPTest}/>
+          <RankFormQuestions rankQuestions={rankQuestions} rankChoices={rankChoices} rank={rank} answers={answers} addAnswer={addAnswer}/>
+          {error && <Alert variant='danger'>{error}</Alert>}
+          <Button className="ms-4 mb-5" variant="outline-danger" onClick={handleClick}>Submit</Button>
+        </>
+      }
+      {success &&
+        <div className="text-success text-center mt-5">
+          <h1 className="display-3 fw-bold">Thank You!</h1>
+          <p className="display-6">Your test will be ${rankPrices[`${rank}`] + (pTest ? 25 : 0)}</p>
         </div>
-        <div className="my-4 px-4">
-          <motion.h4
-            initial={{scale: 0, originX:0}}
-            whileInView={{scale:1}}
-            viewport={{margin:'-10px'}}
-          >
-            Private Test - Additional $25
-          </motion.h4>
-          <ul className="ps-4 pt-3">
-            <motion.li 
-              className={pTest ? 'active': ''} 
-              onClick={() => setPTest(true)}
-              initial={{opacity:0, scale: 0, originX:0}}
-              whileHover={{x: 3, originX:0, color: '#b3002d'}} 
-              whileTap={{scale: 0.9, originX:0, color: '#b3002d'}} 
-              whileInView={{scale:1, opacity:1}}
-              viewport={{margin:'-20px'}}
-            ><span>Yes</span></motion.li>
-            <motion.li 
-              className={pTest ? '': 'active'} 
-              onClick={() => setPTest(false)}
-              initial={{opacity:0, scale: 0, originX:0}}
-              whileHover={{x: 3, originX:0, color: '#b3002d'}} 
-              whileTap={{scale: 0.9, originX:0, color: '#b3002d'}} 
-              whileInView={{scale:1, opacity:1}}
-              viewport={{margin:'-20px'}}
-            ><span>No</span></motion.li>
-          </ul>
-        </div>
-        {rankQuestions[rank.toLowerCase()].map((q, qidx) => (
-          <div key={q} className={`my-4 px-4 py-3 ${qidx % 2 === 0 ? 'bg-light' : ''}`}>
-            <motion.h4 
-              initial={{scale: 0, originX:0}}
-              whileInView={{scale:1}}
-              viewport={{margin:'-10px'}}
-            >{q}</motion.h4>
-            <ul className="ps-4 pt-3">
-              {rankChoices[rank.toLowerCase()][qidx].map((choice, cidx) => {
-                let selected = answers[`Q${qidx + 1}`] === cidx + 1 ? 'active' : ''
-                return (
-                <motion.li
-                  initial={{opacity:0, scale: 0, originX:0}}
-                  whileHover={{x: 3, originX:0, color: '#b3002d'}} 
-                  whileTap={{scale: 0.9, originX:0, color: '#b3002d'}} 
-                  whileInView={{scale:1, opacity:1}}
-                  viewport={{margin:'-20px'}}
-                  key={choice} 
-                  onClick={() => addAnswer(qidx,cidx)}
-                  className={selected}
-                >
-                  <span>{choice}</span>
-                </motion.li>
-                )
-              })}
-            </ul>
-          </div>
-        ))}
-      </div>
-      {error && <Alert variant='danger'>{error}</Alert>}
-      <Button className="ms-4 mb-5" variant="outline-danger" onClick={handleClick}>Submit</Button>
+      }
     </div>
   )
 }
+
+
+    /*
+        Props List:
+        props.Name = Full Name (Text)
+        props.Date = Test Date (Text)
+        props.TestTime  = Test Time (Text)
+        props.TestDue = Test Due (Checkbox)
+        props.Applicant1 = Applicant1 (Bool/Checkbox)
+        props.Applicant2 = Applicant2 (Bool/Checkbox)
+        props.Signature = Signature (Text)
+        props.Q1 = (1-4) (Int/Checkbox)
+        props.Q2 = (1-4) (Int/Checkbox)
+        .
+        .
+        props.Q10 = (1-4) (Checkbox)
+
+        props.PAY <- How people with pay = CASH, CREDIT/DEBIT, CHARGE TO ACCOUNT
+    */

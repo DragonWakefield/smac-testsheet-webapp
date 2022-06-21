@@ -13,7 +13,7 @@ export default function RankCard({ranks, title, bg, color}) {
             <motion.div className="card-container"  variants={cardVariants} style={{backgroundImage: `linear-gradient(180deg, ${bg[0]}, ${bg[1]})`}} onClick={() => changeGroup(title)}>
                 {group === title ? 
                 <motion.div variants={rankVariants}>
-                    <CloseButton className="card-button" 
+                    <CloseButton className="card-button mb-3" 
                         onClick={(e) => {
                             e.stopPropagation()
                             changeGroup(null)
