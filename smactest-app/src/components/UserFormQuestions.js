@@ -2,7 +2,7 @@ import { motion } from "framer-motion"
 
 export default function UserFormQuestions({name, setName, pTest, setPTest}) {
     return (
-        <>
+        <div className="questions">
             <div className='my-4 px-4 py-3'>
                 <motion.h4 
                     initial={{scale: 0, originX:0}}
@@ -13,7 +13,7 @@ export default function UserFormQuestions({name, setName, pTest, setPTest}) {
                 type='text' 
                 value={name} 
                 onChange={(e) => setName(e.target.value)}
-                className=' mt-3'
+                className='mt-3'
                 initial={{scale: 0, originX:0}}
                 whileInView={{scale:1}}
                 whileHover={{x: 3, originX:0}}
@@ -26,7 +26,7 @@ export default function UserFormQuestions({name, setName, pTest, setPTest}) {
                     whileInView={{scale:1}}
                     viewport={{margin:'-10px'}}
                 >
-                    Private Test - Additional $25
+                    If you require private test - Additional $25
                 </motion.h4>
                 <ul className="ps-4 pt-3">
                     <motion.li 
@@ -49,6 +49,6 @@ export default function UserFormQuestions({name, setName, pTest, setPTest}) {
                     ><span>No</span></motion.li>
                 </ul>
             </div>
-        </>
+        </div>
     )
 }

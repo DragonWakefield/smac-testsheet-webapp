@@ -2,7 +2,7 @@ import { motion } from "framer-motion"
 
 export default function RankFormQuestions({ rankQuestions, rankChoices, rank, answers, addAnswer }) {
     return (
-        <>
+        <div className="questions">
             {rankQuestions[rank.toLowerCase()].map((q, qidx) => (
                 <div key={q} className={`my-4 px-4 py-3 ${qidx % 2 === 0 ? 'bg-light' : ''}`}>
                 <motion.h4 
@@ -31,6 +31,6 @@ export default function RankFormQuestions({ rankQuestions, rankChoices, rank, an
                 </ul>
                 </div>
             ))}
-        </>
+        </div>
     )
 }
