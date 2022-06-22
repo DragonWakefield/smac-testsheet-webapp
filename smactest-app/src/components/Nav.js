@@ -2,8 +2,12 @@ import './Nav.css'
 import smac from '../assets/smac-logo.png'
 
 import { Link } from 'react-router-dom'
+import { useAuthContext } from '../hooks/useAuthContext'
+import { useLogout } from '../hooks/useLogout'
 
 export default function Nav() {
+  const { user } = useAuthContext()
+  const { logout } = useLogout()
   return (
     <div className="navbar px-md-5 ps-1 pe-2">
       <div className="container-fluid">
@@ -15,7 +19,8 @@ export default function Nav() {
             <Link to="#" className="prices nav-link fw-bold" style={{color: '#FBC740'}}>Prices</Link>
           </li>
           <li className="nav-item ms-3">
-            <Link to="/login" className="nav-link text-dark fw-bold">Login</Link>
+            {!user && <Link to="/login" className="nav-link text-dark fw-bold">Login</Link>}
+            {user && <button className="btn btn-dark" onClick={logout}>Logout</button>}
           </li>
         </ul>
       </div>
