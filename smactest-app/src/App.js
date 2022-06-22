@@ -15,7 +15,6 @@ import Nav from './components/Nav';
 function App() {
   const { rank } = useRank()
   const { user } = useAuthContext()
-  console.log(user)
   return (
     <div className="App">
       <BrowserRouter>
