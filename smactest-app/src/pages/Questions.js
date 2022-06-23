@@ -18,7 +18,7 @@ import rankPromotions from "./rankData/rankPromotions"
 
 export default function Questions() {
   const { addDocument } = useFirestore('sheets')
-  const { rank } = useRank()
+  const { rank, group } = useRank()
   const [error, setError] = useState("")
   const [success, setSuccess] = useState(false)
   const [name, setName] = useState('')
@@ -99,7 +99,7 @@ export default function Questions() {
               {promotion.to.name}
             </span> Questions
           </h1>
-          <p className="alert alert-warning">Select the correct answers</p>
+          <p className="alert alert-warning">Select the correct answers (Check the {group} book)</p>
           <UserFormQuestions name={name} setName={setName} pTest={pTest} setPTest={setPTest} rankPrices={rankPrices} rank={rank}/>
           <RankFormQuestions rankQuestions={rankQuestions} rankChoices={rankChoices} rank={rank} answers={answers} addAnswer={addAnswer}/>
           {error && <Alert variant='danger'>{error}</Alert>}
@@ -109,7 +109,7 @@ export default function Questions() {
       {success &&
         <div className="text-success text-center mt-5">
           <h1 className="display-3 fw-bold">Thank You!</h1>
-          <p className="display-6">Your test will be ${rankPrices[`${rank}`] + (pTest ? 25 : 0)}</p>
+          <p className="display-6">Your test will be ${rankPrices[`${rank}`].price + (pTest ? 25 : 0) + (rankPrices[`${rank}`].book ? 25 : 0)}</p>
         </div>
       }
     </div>

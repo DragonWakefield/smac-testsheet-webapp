@@ -19,8 +19,8 @@ export default function RankCard({ranks, title, bg, color}) {
                             changeGroup(null)
                         }}/>
                     {ranks.map((rank) => (
-                            <motion.div key={rank.name} onClick={() => {
-                                changeRank(rank.name)
+                            <motion.div key={rank.id} onClick={() => {
+                                changeRank(rank.id)
                                 navigate('/questions')
                             }}
                             variants={sashVariants}

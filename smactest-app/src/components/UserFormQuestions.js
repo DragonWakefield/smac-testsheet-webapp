@@ -8,7 +8,7 @@ export default function UserFormQuestions({name, setName, pTest, setPTest, rankP
                     initial={{scale: 0, originX:0}}
                     whileInView={{scale:1}}
                     viewport={{margin:'-10px'}}
-                >Name</motion.h4>
+                >Full Name</motion.h4>
                 <motion.input 
                 type='text' 
                 value={name} 
@@ -27,7 +27,7 @@ export default function UserFormQuestions({name, setName, pTest, setPTest, rankP
                     viewport={{margin:'-10px'}}
                     className="alert alert-info"
                 >
-                    Your test will be ${rankPrices[`${rank}`]}
+                    Your test will be ${rankPrices[`${rank}`].price} {rankPrices[`${rank}`].book ? '+ 25 (Training Guide)' : ''}
                 </motion.h4>
             </div>
             <div className="my-4 px-4 pb-3">
