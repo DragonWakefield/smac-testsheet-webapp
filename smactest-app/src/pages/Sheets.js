@@ -6,14 +6,34 @@ import FillPDF from "../components/pdfFiller";
 
 export default function Sheets() {
 
-  
+  const [docs, setDocs] = useState([]);
   const {documents} = useCollection('sheets');
+  //console.log(documents);
+
+  useEffect(() => {
+    if (documents){
+      setDocs(documents.sort(function compare(a,b){
+        
+        if (a.createdAt.seconds < b.createdAt.seconds){
+          
+          return 1
+        } 
+        if (a.createdAt.seconds > b.createdAt.seconds){
+          return -1
+        } 
+        return 0;
+      }))  
+      console.log(docs);      
+    }
   
+  },[documents, docs]);
+
   
   function downloadPdfs(){
     
-    documents.forEach((x,i)=> FillPDF(x));
-    console.log("hi");
+    docs.forEach((x,i)=> {if (!x.Downloaded){FillPDF(x)}});
+    /*FillPDF(documents[0]);*/
+    console.log(docs[0]);
   }
 
 
@@ -22,9 +42,10 @@ export default function Sheets() {
       <h2> Test Sheets</h2>
       <Button className="m-3" onClick={downloadPdfs}>Download New Test Sheets</Button>
       <div>
-
-      {documents ? documents.map((doc, index) => (
-        <TestData name={doc.Name} date={doc.createdAt.seconds} rank={doc.Rank} downloaded = {doc.Downloaded} pTest = {doc.PTest} key = {index}/>
+      
+      {docs ? docs.map((doc, index) => (
+        
+        <TestData {...doc} key = {index}/>
       )) : <h2>No Sheets Yet</h2>}
       
       </div>

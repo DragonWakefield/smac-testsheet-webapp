@@ -1,10 +1,10 @@
 import {PDFDocument} from 'pdf-lib';
 import download from 'downloadjs';
-
+import {useFirestore} from "../hooks/useFirestore";
 const FillPDF = async (props) =>{
     
-    const reader = new FileReader();
-  
+    //const fs = require('fs/promises');
+    const {updateDocument} = useFirestore("sheets");
     /*
         Props List:
         props.Name = Full Name (Text)
@@ -24,14 +24,16 @@ const FillPDF = async (props) =>{
     */
     let testsheet = null;
     
-    if (props.Rank == "Purple"){
-        console.log("True");
-        testsheet = await fetch("../testpdfs/blueApplication.pdf").then(res => res.arrayBuffer());
+        
+    if (props.Rank === "Purple"){
+        
+        testsheet = await fetch("./testpdfs/blueApplication.pdf").then(res => res.arrayBuffer());
+        //testsheet = await fs.readfile("./testpdfs/blueApplication.pdf");
     }
-    console.log(testsheet);
+
     if (testsheet != null){
         const testDoc = await PDFDocument.load(testsheet);
-
+        console.log("True");
         const testform = testDoc.getForm();
     
         // Sets User's Name to PDF
@@ -42,7 +44,7 @@ const FillPDF = async (props) =>{
         testform.getTextField('Test Time').setText(props.TestTime);
         // Sets the Test Payment Check Box
         if (props.TestDue){
-           testform.getCheckBox('Test Due').check(); 
+        testform.getCheckBox('Test Due').check(); 
         }
         // Sets Applicant Agreement 1
         if (props.Applicant1){
@@ -97,10 +99,13 @@ const FillPDF = async (props) =>{
         question = question.concat(props.Q10);
         testform.getCheckBox(question).check();
     
-        
+        // save and download user's inputs as pdf
+        let filename = props.Name + "-testform.pdf";
         const pdfbytes = await testDoc.save();
-        download(pdfbytes, "testform.pdf", "./blueApplication.pdf")
+        download(pdfbytes, filename, "./blueApplication.pdf")
         
+        //Update PDF in database as downloaded
+        updateDocument(props.id, {Downloaded: true});
     }
     
 }
