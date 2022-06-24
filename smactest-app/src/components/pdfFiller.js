@@ -24,13 +24,40 @@ const FillPDF = async (props) =>{
     */
     let testsheet = null;
     
-        
-    if (props.Rank === "Purple"){
-        
+    if (props.Rank === "White"){
+        testsheet = await fetch("./testpdfs/yellowApplication.pdf").then(res => res.arrayBuffer());
+    }
+    else if (props.Rank === "Yellow"){
+        testsheet = await fetch("./testpdfs/orangeApplication.pdf").then(res => res.arrayBuffer());
+    }
+    else if (props.Rank === "Orange"){
+        testsheet = await fetch("./testpdfs/purpleApplication.pdf").then(res => res.arrayBuffer());
+    }    
+    else if (props.Rank === "Purple"){
         testsheet = await fetch("./testpdfs/blueApplication.pdf").then(res => res.arrayBuffer());
         //testsheet = await fs.readfile("./testpdfs/blueApplication.pdf");
     }
-
+    else if (props.Rank === "Blue"){
+        testsheet = await fetch("./testpdfs/blueStApplication.pdf").then(res => res.arrayBuffer());
+    }
+    else if (props.Rank === "BlueSt"){
+        testsheet = await fetch("./testpdfs/greenApplication.pdf").then(res => res.arrayBuffer());
+    }
+    else if (props.Rank === "Green"){
+        testsheet = await fetch("./testpdfs/greenStApplication.pdf").then(res => res.arrayBuffer());
+    }
+    else if (props.Rank === "GreenSt"){
+        testsheet = await fetch("./testpdfs/greenSt2Application.pdf").then(res => res.arrayBuffer());
+    }
+    else if (props.Rank === "GreenSt2"){
+        testsheet = await fetch("./testpdfs/brownApplication.pdf").then(res => res.arrayBuffer());
+    }
+    else if (props.Rank === "Brown"){
+        testsheet = await fetch("./testpdfs/brownStApplication.pdf").then(res => res.arrayBuffer());
+    }
+    else if (props.Rank === "BrownSt"){
+        testsheet = await fetch("./testpdfs/brownSt2Application.pdf").then(res => res.arrayBuffer());
+    }
     if (testsheet != null){
         const testDoc = await PDFDocument.load(testsheet);
         console.log("True");
@@ -39,13 +66,14 @@ const FillPDF = async (props) =>{
         // Sets User's Name to PDF
         testform.getTextField('Full Name').setText(props.Name);
         // Sets Test Date
-        testform.getTextField('Test Date').setText(props.Date);
+        //testform.getTextField('Test Date').setText(props.Date);
         // Sets Test Time
-        testform.getTextField('Test Time').setText(props.TestTime);
+        //testform.getTextField('Test Time').setText(props.TestTime);
         // Sets the Test Payment Check Box
-        if (props.TestDue){
         testform.getCheckBox('Test Due').check(); 
-        }
+        // Sets Private Test box
+        testform.getCheckBox("PrivateTesting").check();
+
         // Sets Applicant Agreement 1
         if (props.Applicant1){
             testform.getCheckBox('Applicant1').check();
@@ -55,7 +83,7 @@ const FillPDF = async (props) =>{
             testform.getCheckBox('Applicant2').check();
         }
         // Sets User Signature
-        testform.getTextField('Signature').setText(props.Signature);
+        //testform.getTextField('Signature').setText(props.Signature);
     
         /* Questions */
         // Q1
