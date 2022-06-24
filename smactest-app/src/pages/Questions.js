@@ -23,6 +23,7 @@ export default function Questions() {
   const [success, setSuccess] = useState(false)
   const [name, setName] = useState('')
   const [pTest, setPTest] = useState(false)
+  const [payType, setPayType] = useState(0)
   const [answers, setAnswers] = useState({
     Q1: null, 
     Q2: null, 
@@ -79,6 +80,7 @@ export default function Questions() {
       Rank: rank,
       PTest: pTest,
       Downloaded: false,
+      PayType: payType,
       ...answers
     }
     await addDocument(doc)
@@ -99,8 +101,8 @@ export default function Questions() {
               {promotion.to.name}
             </span> Questions
           </h1>
-          <p className="alert alert-warning">Select the correct answers (Check the {group} book)</p>
-          <UserFormQuestions name={name} setName={setName} pTest={pTest} setPTest={setPTest} rankPrices={rankPrices} rank={rank}/>
+          <p className="alert alert-warning">Select the correct answers (Check the <b>{group}</b> book)</p>
+          <UserFormQuestions name={name} setName={setName} pTest={pTest} setPTest={setPTest} rankPrices={rankPrices} rank={rank} payType={payType} setPayType={setPayType}/>
           <RankFormQuestions rankQuestions={rankQuestions} rankChoices={rankChoices} rank={rank} answers={answers} addAnswer={addAnswer}/>
           {error && <Alert variant='danger'>{error}</Alert>}
           <Button className="ms-4 mb-5" variant="outline-danger" onClick={handleClick}>Submit</Button>

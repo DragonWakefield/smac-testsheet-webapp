@@ -8,7 +8,7 @@ const rankPrices = {
         book: false
     },
     Orange: {
-        price: 50,
+        price: 60,
         book: true
     },
     Purple: {

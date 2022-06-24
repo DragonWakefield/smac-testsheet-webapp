@@ -16,9 +16,6 @@ export default function Nav() {
         </div>
         <ul className="navbar-nav flex-row">
           <li className="nav-item ms-3">
-            <Link to="#" className="nav-link fw-bold" style={{color: '#FBC740'}}>Prices</Link>
-          </li>
-          <li className="nav-item ms-3">
             {user && <Link to="/sheets" className="nav-link fw-bold" style={{color: '#FBC740'}}>All Test sheets</Link>}
           </li>
           <li className="nav-item ms-3">
