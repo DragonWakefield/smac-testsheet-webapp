@@ -14,18 +14,20 @@ import Nav from './components/Nav';
 
 function App() {
   const { rank } = useRank()
-  const { user } = useAuthContext()
+  const { user, authIsReady } = useAuthContext()
   return (
     <div className="App">
-      <BrowserRouter>
-        <Nav />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/questions" element={rank ? <Questions /> : <Navigate to="/"/>} />
-          <Route path="/login" element={!user ? <Login /> : <Navigate to="/"/>} />
-          <Route path="/sheets" element={user ? <Sheets /> : <Navigate to="/"/>} />
-        </Routes>
-      </BrowserRouter>
+      {authIsReady && 
+        <BrowserRouter>
+          <Nav />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/questions" element={rank ? <Questions /> : <Navigate to="/"/>} />
+            <Route path="/login" element={!user ? <Login /> : <Navigate to="/"/>} />
+            <Route path="/sheets" element={user ? <Sheets /> : <Navigate to="/"/>} />
+          </Routes>
+        </BrowserRouter>
+      }
     </div>
   );
 }

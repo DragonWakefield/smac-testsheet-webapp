@@ -8,7 +8,7 @@ import allRanks from './rankData/rankCards'
 export default function Home() {
   return (
     <div className="home">
-        <h3>What rank are you?</h3>
+        <h3 className="my-5">Select your <span className="badge bg-dark">current</span> rank and fill out the form</h3>
         <motion.div variants={cardVariants} initial='hidden' animate='visible'>
           {allRanks.map((rank) => (
             <RankCard key={rank.title} title={rank.title} ranks={rank.ranks} bg={rank.bg} color={rank.color} />
