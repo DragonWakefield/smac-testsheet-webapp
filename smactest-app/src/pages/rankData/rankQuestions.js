@@ -1,5 +1,41 @@
 const rankQuestions = {
-    purple: [
+    White: [
+      'What are the three things we bow to at the beginning of class?',
+      'How do we greet Instructors at the door?',
+      'How do you answer Instructors in the Class?',
+      'An appropriate use of Shaolin Kempo Kung-Fu is',
+      'Which of the 8pt. Blocks have you learned?',
+      'Which Martial Arts make up our system?',
+      'What is the name of the style we teach?',
+      'What is #3 of the 5 Points of Horse Stance?',
+      'Where should your shoes go before class?',
+      'What is the order of movement is ½ moon stepping?'
+    ],
+    Yellow: [
+      'The Orange Belt falls under which Shaolin Kempo Kung-Fu training category?',
+      'Who is the Head Master of the school?',
+      'What part of the foot is used for a Front Kick?',
+      'Who was the first master of the Shaolin Temple?',
+      'The act of Bowing is…',
+      ' How should the hands be held when in Bao Quan (Front Position)?',
+      'What is a Chinese term used for a teacher of Kung-Fu?',
+      'How many ranks are there before Black Sash?',
+      'Which is not one of the 5 Shaolin Animals?',
+      'What are the 4 stages of front, back, or side kick?'
+    ],
+    Orange: [
+       'What does the Chinese writing on our school crest translate to?',
+       'Tiger represents which element?',
+       'What part of the foot is used for a Side Kick?',
+       'The forward & backward action when punching is called:',
+       'Which 2 Combinations start with same footwork?',
+       'The 3 Character Rules are?',
+       'How many steps in Ping-An #1 after salutation?',
+       'Inside & Outside Crescent kick hit with…',
+       'Which is one of the 5 Shaolin Animals?',
+       'The Striking point of Crane wrist is…'
+    ],
+    Purple: [
       'What is Sparring?', 
       'What is Self-Defense?', 
       'What part of the foot is used for a Round Kick?', 
@@ -10,6 +46,102 @@ const rankQuestions = {
       'Bodhidharma (or Tamo) is:', 
       'The Shaolin Temple is located in:', 
       'The Striking point of Immortal Hand is:'
+    ],
+    Blue: [
+      'Crane represents which element? (Basic Book)',
+      'The Cat stance is what kind of position?',
+      'What part of the foot is used for a Hook Kick?',
+      'When performing the 1/2 Moon turn:',
+      'The term \'Gong-Fu/Kung-fu\' actually refers to activities that require:',
+      'Level 1 Self-Defense includes',
+      'The hands in \'Front Position\' represent?',
+      'How many Directions of Movement are there?',
+      'The shout, "HA!" is a:',
+      'The Striking point of Ridge Hand is...'
+    ],
+    BlueSt: [
+      'Arm-bars lock the opponent at the...',
+      'How many steps are in Kata 1? (Not including Salutation)',
+      'How many steps are in Kata 2? (Not including Salutation)',
+      'Which Combination introduces Cat stance?',
+      'In what province of China was the Shaolin Temple built?',
+      'How many shout points are there in Kata 2?',
+      'Which Combinations represents the element of Leopard and Tiger?',
+      'What are the 2 Qi-Gong routines in Level 1?',
+      'The closest of the 3 fighting ranges is:',
+      'The \'Open Position\' in sparring is when...'
+    ],
+    Green: [
+      'Who was considered the first true teacher of Kempo in Okinawa?',
+      'The Chinese word for Leopard means: (Basic Book)',
+      'Who created the ‘Ping-An’ forms?',
+      'How many types of Elbows are there in the 12pt. system:',
+      'What are the 3 main Chin-Na wrist locks?',
+      'What leg takedowns are shown in Green Belt?',
+      'Which of these Quan-Fa Combos do you have?',
+      'What is the aim of Blue Dragon breathing?',
+      'When attacking you become more…',
+      'Self-Confidence is the ability to…'
+    ],
+    GreenSt: [
+      'Medium stances are good for:',
+      'The 3 Centers of Power in the body are:',
+      'What is the primary drawback of Spin Kicks?',
+      'When executing a Spin kick, it is a good idea to:',
+      'In English, Lian Huan Quan translates to:',
+      'Which of these means ‘Drop Stance’? (*Blue Book)',
+      'What kind of position is the Dragon Stance?',
+      'All self-defense skills should be practiced on:',
+      'The Phoenix Eye strike can be used on what targets?',
+      'If your opponent has equal skill, strength and speed, what will be the deciding factor for achieving a successful outcome?'
+    ],
+    GreenSt2: [
+      'Who founded Shorin Ryu Kempo?',
+      'What does the Snake symbolize in Kempo: (Basic Book)',
+      'Who was Kushanku?',
+      'Crane Stance is unique because:',
+      'Based on their characteristics, which pair of animals would best fit Combo #16?',
+      'The Original name for Stature of the White Crane was…',
+      'Which of these Quan-Fa Combos do you have?',
+      'What is the aim of White Crane breathing?',
+      'Use both Attack & Counter Attack when',
+      'A confident person knows how to…'
+    ],
+    Brown: [
+      'Who was the first Hawwaiian Kempo Master?',
+      'What was the path of Kempo from Shaolin?',
+      'Which statement is False: “Si Liu Bu is…?',
+      'What position is the hand in Snake strike?',
+      'How many steps of the 10 pt. blocking system have you learned?',
+      'What does the Archer exercise benefit?',
+      'What is the definition of Power in Kung-Fu?',
+      'In Brown Belt Self-defense, I have learned:',
+      'What Combinations have you learned so far?',
+      'When fighting, the eyes should look …'
+    ],
+    BrownSt: [
+      'Who was the first master to bring Kempo to Eastern United States?',
+      'From who did Grandmaster Tim learn Kempo?',
+      'What are the 2 types of Harmonies?',
+      'Crane Strike is used on which targets?',
+      'How many Harmonies are there?',
+      'What is the 21 Tibetans exercise used for?',
+      'When judging sparring distance, experienced fighter will position themselves:',
+      'In Kempo, fear is:',
+      'Based on what we know of the 5 Animals which Combos are dominantly Leopard?',
+      'Stances in Kung-Fu are at their best when …'
+    ],
+    BrownSt2: [
+      'Are you ready?',
+      'Are you sure?',
+      'Are you really sure?',
+      'Like really sure?',
+      'Like for real?',
+      'You don\'t wanna turn back?',
+      'It\'s not too late to leave',
+      'Click yes to leave',
+      'Aight too bad for you?',
+      'Bye bye?',
     ]
 }
 export default rankQuestions
