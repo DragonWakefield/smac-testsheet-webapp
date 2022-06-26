@@ -4,3 +4,17 @@
 .dl-false{
  
 }
+
+#deleteButton{
+    margin: 0% 0% 0% 80%;
+    width: 20%;
+    background-color:red;
+}
+
+@media only screen and (max-width:800px){
+    #deleteButton{
+        margin:auto;
+        width:40%;
+        background-color:red;
+    }
+}
