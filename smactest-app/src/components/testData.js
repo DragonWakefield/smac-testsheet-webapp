@@ -12,14 +12,27 @@ const TestData = (props)=>{
     function deleteData(){
         deleteDocument(props.id);
     }
+
+    function getPayType(){
+        if (props.PayType === 0){
+            return "Cash";
+        }
+        else if (props.PayType === 1){
+            return "Debit";
+        }
+        else if (props.PayType === 2){
+            return "Account";
+        }
+    }
     return(
         <div>
-            <Card className="mb-3" style={{margin:"auto", width: "40%"}} onClick={downloadPdf}>
-                <Card.Body className={props.Downloaded ? "dl-true row no-gutters": "dl-false row no-gutters"}>
+            <Card className={props.Downloaded ? "text-white bg-secondary mb-3": "mb-3"}  style={{margin:"auto", width: "40%"}} >
+                <Card.Body className= "row no-gutters" onClick={downloadPdf}>
                     <Card.Title> {props.Name}</Card.Title>
-                    <Card.Text><b>Rank:</b> {props.Rank} <b className="ms-5">Private Test:</b> {props.PTest.toString()}</Card.Text>
-                    <Button id="deleteButton" onClick={deleteData}>Delete Sheet</Button>
+                    <Card.Text><b>Rank:</b> {props.Rank} <b className="ms-5">Private Test:</b> {props.PTest.toString()} <b className="ms-5">Payment:</b> {getPayType()}</Card.Text>
+                    
                 </Card.Body>
+                <Button id="deleteButton" onClick={deleteData}>Delete Sheet</Button>
             </Card>
             
         </div>

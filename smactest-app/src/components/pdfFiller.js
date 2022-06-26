@@ -60,7 +60,7 @@ const FillPDF = async (props) =>{
     }
     if (testsheet != null){
         const testDoc = await PDFDocument.load(testsheet);
-        console.log("True");
+        
         const testform = testDoc.getForm();
     
         // Sets User's Name to PDF
@@ -72,7 +72,10 @@ const FillPDF = async (props) =>{
         // Sets the Test Payment Check Box
         testform.getCheckBox('Test Due').check(); 
         // Sets Private Test box
-        testform.getCheckBox("PrivateTesting").check();
+        if (props.PTest){
+            testform.getCheckBox("PrivateTesting").check();
+        }
+        
 
         // Sets Applicant Agreement 1
         if (props.Applicant1){
