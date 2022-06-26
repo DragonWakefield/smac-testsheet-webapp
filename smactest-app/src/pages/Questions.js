@@ -111,7 +111,7 @@ export default function Questions() {
       {success &&
         <div className="text-success text-center mt-5">
           <h1 className="display-3 fw-bold">Thank You!</h1>
-          <p className="display-6">Your test will be ${rankPrices[`${rank}`].price + (pTest ? 25 : 0) + (rankPrices[`${rank}`].book ? 25 : 0)}</p>
+          <p className="display-6">Your test will be ${rankPrices[`${rank}`].price + (pTest ? 25 : 0) + (rankPrices[`${rank}`].book ? 25 : 0)} {payType > 0 ? '+ Tax': ''}</p>
         </div>
       }
     </div>
