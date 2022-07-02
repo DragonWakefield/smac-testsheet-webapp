@@ -11,6 +11,7 @@ import Login from './pages/Login';
 
 // Components
 import Nav from './components/Nav';
+import Footer from './components/Footer';
 
 function App() {
   const { rank } = useRank()
@@ -26,6 +27,7 @@ function App() {
             <Route path="/login" element={!user ? <Login /> : <Navigate to="/"/>} />
             <Route path="/sheets" element={user ? <Sheets /> : <Navigate to="/"/>} />
           </Routes>
+          <Footer />
         </BrowserRouter>
       }
     </div>
