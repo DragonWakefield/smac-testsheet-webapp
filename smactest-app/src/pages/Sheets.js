@@ -49,7 +49,7 @@ export default function Sheets() {
   }
 
   return (
-    <div className="text-center mt-5">
+    <div style={{"min-height":"80vh"}} className="text-center mt-5">
       <h2> Test Sheets</h2>
       <Button className="mr-3" onClick={downloadPdfs}>Download New Test Sheets</Button>
       <Button className = "m-3 btn-danger" onClick={deletePdfs}>Delete All Test Sheets</Button>

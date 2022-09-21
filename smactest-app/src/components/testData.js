@@ -10,7 +10,16 @@ const TestData = (props)=>{
     }
 
     function deleteData(){
-        deleteDocument(props.id);
+        var uInput = prompt('Type: YES to Purge all pdfs');
+        if (uInput.toUpperCase() === 'YES'){
+          alert("Purging Document");
+          deleteDocument(props.id);
+        }
+        else{
+          alert("Cancelling Purge");
+        }
+        
+        
     }
 
     function getPayType(){

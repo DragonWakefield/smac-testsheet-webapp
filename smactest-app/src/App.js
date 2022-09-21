@@ -28,6 +28,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       }
+      <div className="bottombar"><span>Created by Daniel and Ethan Wakefield</span></div>
     </div>
   );
 }
