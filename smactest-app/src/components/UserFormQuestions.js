@@ -79,7 +79,7 @@ export default function UserFormQuestions({name, setName, pTest, setPTest, rankP
                         whileTap={{scaleY: 0.8, originX:0, color: '#b3002d'}} 
                         whileInView={{scale:1, opacity:1}}
                         viewport={{margin:'-20px'}}
-                    ><span>Cash</span></motion.li>
+                    ><span>Cash or Debit (+Tax)</span></motion.li>
                     <motion.li 
                         className={payType === 1 ? 'active' : ''} 
                         onClick={() => setPayType(1)}
@@ -88,7 +88,7 @@ export default function UserFormQuestions({name, setName, pTest, setPTest, rankP
                         whileTap={{scaleY: 0.8, originX:0, color: '#b3002d'}} 
                         whileInView={{scale:1, opacity:1}}
                         viewport={{margin:'-20px'}}
-                    ><span>Debit (+Tax)</span></motion.li>
+                    ><span>Interac e-Transfer (EMT)</span></motion.li>
                     <motion.li 
                         className={payType === 2 ? 'active': ''} 
                         onClick={() => setPayType(2)}

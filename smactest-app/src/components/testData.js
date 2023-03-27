@@ -10,7 +10,7 @@ const TestData = (props)=>{
     }
 
     function deleteData(){
-        var uInput = prompt('Type: YES to Purge all pdfs');
+        var uInput = prompt('Type: YES to OBLITERATE Heretic');
         if (uInput.toUpperCase() === 'YES'){
           alert("Purging Document");
           deleteDocument(props.id);
@@ -24,10 +24,10 @@ const TestData = (props)=>{
 
     function getPayType(){
         if (props.PayType === 0){
-            return "Cash";
+            return "Cash/ Debit";
         }
         else if (props.PayType === 1){
-            return "Debit";
+            return "E-transfer";
         }
         else if (props.PayType === 2){
             return "Account";

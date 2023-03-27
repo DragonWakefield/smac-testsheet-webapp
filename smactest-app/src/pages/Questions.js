@@ -112,6 +112,7 @@ export default function Questions() {
         <div className="text-success text-center mt-5">
           <h1 className="display-3 fw-bold">Thank You!</h1>
           <p className="display-6">Your test will be ${rankPrices[`${rank}`].price + (pTest ? 25 : 0) + (rankPrices[`${rank}`].book ? 25 : 0)} {payType > 0 ? '+ Tax': ''}</p>
+          <p className="display-6">{payType === 1 ? "Please send your E-Transfer (EMT) to smactestfees@gmail.com": null}</p>
         </div>
       }
     </div>
