@@ -65,10 +65,6 @@ const FillPDF = async (props) =>{
     
         // Sets User's Name to PDF
         testform.getTextField('Full Name').setText(props.Name);
-        // Sets Test Date
-        //testform.getTextField('Test Date').setText(props.Date);
-        // Sets Test Time
-        //testform.getTextField('Test Time').setText(props.TestTime);
         // Sets the Test Payment Check Box
         testform.getCheckBox('Test Due').check(); 
         // Sets Private Test box
