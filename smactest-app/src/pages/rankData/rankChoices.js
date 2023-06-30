@@ -19,10 +19,10 @@ const rankChoices = {
         '“-‘kay”'
       ],
       [
-        'Showing off at work or school',
-        'In defense of myself or others',
-        'When you are upset',
-        'Play fighting with family or friends'
+        'Flat & Safe Fist',
+        'Safety Fist',
+        'Peaceful Fist',
+        'I do not know'
       ],
       [
         '#1 and #2',
@@ -49,10 +49,10 @@ const rankChoices = {
         'Knees bent, down & out'
       ],
       [
-        'On the floor in the hall',
-        'In the cubbies at the front',
-        'Just wear them during class',
-        'At the edge of the mats by the door'
+        '8',
+        '16',
+        '20',
+        '24'
       ],
       [
         'Punch, then step',
@@ -105,15 +105,15 @@ const rankChoices = {
         'Bob'
       ],
       [
-        '12',
-        '10',
-        '9',
-        '7'
+        '...a dance with blocks and punches',
+        'How to fight many opponents',
+        'How to turn 90°, 180°, and 270°',
+        'To generate power in the 3 directions'
       ],
       [
-        'Dragon',
+        'Eagle',
         'Praying Mantis',
-        'Snake',
+        'Monkey',
         'Leopard'
       ],
       [
@@ -161,10 +161,10 @@ const rankChoices = {
         'I don’t know'
       ],
       [
-        '10',
-        '15',
-        '20',
-        '25'
+        'Basic Kung-Fu Boxing',
+        'Five Painful Positions',
+        'Five Stances Boxing',
+        'Crouching Tiger, Hidden Dragon'
       ],
       [
         'The Instep & Blade of the foot',
@@ -173,10 +173,10 @@ const rankChoices = {
         'Neither, just sides of the shin'
       ],
       [
-        'Eagle',
-        'Snake',
-        'Monkey',
-        'Ocelot'
+        'It is the first form of Shaolin Kung-fu',
+        'Develops strength, agility, & flexibility',
+        'Develops power, speed, & balance',
+        'All of the above'
       ],
       [
         'Top of the front knuckles',
@@ -187,13 +187,13 @@ const rankChoices = {
     ],
     Purple: [
       [
-        'A sophisticated game of Tag',
-        'An all-out fight with rules',
-        'A chance to hurt someone using Kung-fu',
-        'A test of one\'s might as a fighter'
+        'A chance to hurt people using Gong-Fu',
+        'Organized play-fighting for fun',
+        'A Chinese fusion of Kickboxing & Gongfu',
+        'An all-out fight with few rules'
       ],
       [
-        'A chance to hurt someone using Karate',
+        'A chance to hurt someone using Gong-Fu',
         'Applications based on real-life scenarios',
         'An exercise in skilled paranoia',
         'A different way to combine basics'
@@ -201,8 +201,8 @@ const rankChoices = {
       [
         'The Heel',
         'The Side Blade of the foot',
-        'The \'Ball\' of the foot',
-        'The Top or \'Bridge\' of the foot'
+        'The "Ball" of the foot',
+        'The Top or "Bridge" of the foot'
       ],
       [
         'Front, Crescent, Spear',
@@ -218,9 +218,9 @@ const rankChoices = {
       ],
       [
         'Chin-Na & Shuai Jiao',
+        'Vale Tudo & Sambo',
         'Judo & Ninjutsu',
-        'Brazilian Jujutsu & MMA',
-        'All of the above'
+        'MMA & Brazilian Jujutsu'
       ],
       [
         '7',
@@ -241,10 +241,10 @@ const rankChoices = {
         'Tibet'
       ],
       [
-        'The back of the hand',
-        'The bottom two finger knuckles',
-        'Tips of first two fingers',
-        'The bottom of the hand'
+        '18 Shaolin Basic Defense Combos',
+        '18 Shaolin Fundamental Drills',
+        '18 Ancient Shaolin Practices',
+        '18 Shaolin Fighting Drills'
       ]
     ],
     Blue: [
@@ -263,7 +263,7 @@ const rankChoices = {
       [
         'The Heel of the foot',
         'The Toe of the foot',
-        'The \'Ball\' of the foot',
+        'The "Ball" of the foot',
         'The Sole of the foot'
       ],
       [
@@ -297,16 +297,16 @@ const rankChoices = {
         '10'
       ],
       [
-        'Measure of one\'s effort in technique',
-        'Way to shock opponents',
-        'Energetic Breath',
-        'All of the above'
+        'Guns, Knives, Bats, Chains',
+        'Striking, Kicking, Blocking, Evading',
+        'Running, Walking, Hiding, Crawling',
+        'Striking, Kicking, Grappling, Throwing'
       ],
       [
-        'Inside edge of hand above the thumb',
-        'Side of the fingers',
-        'Inside edge of the forearm',
-        'The edge of the thumb-knuckle'
+        'Upward, Downward, Front/Back',
+        'Inside, Outside, Center',
+        'Spin, Shuffle, Cross-step',
+        'Long, Middle, Close'
       ]
       
     ],
@@ -342,16 +342,16 @@ const rankChoices = {
         'Shandong'
       ],
       [
-        '2',
-        '4',
-        '6',
-        'Shout on everything'
+        'Unbreakable Chain Boxing',
+        'Joined Looping Fist',
+        'Linked Rings Boxing',
+        'Not quite sure, I didn\'t read the book'
       ],
       [
-        '#4',
-        '#10',
-        '#12',
-        '#18'
+        '22 changes, 8 steps',
+        '16 changes, 12 steps',
+        '12 changes, 6 steps',
+        '34 changes, 16 steps'
       ],
       [
         'Blue Dragon & White Crane',
@@ -386,10 +386,10 @@ const rankChoices = {
         'Et Exsiliens Feline Mortis (Leaping Cat of Death)'
       ],
       [
-        'Sho Hashi',
-        'Anko Itosu',
-        'Kushanku',
-        'Matsumura Sokon'
+        'Sonny Gascon',
+        'Walter Godin',
+        'Sijo Emperado',
+        'David Kalamini'
       ],
       [
         '12',
@@ -442,10 +442,10 @@ const rankChoices = {
         'Stability and body control'
       ],
       [
-        'Head, Knees, and Toes',
-        'Legs, Waist, and Shoulders',
-        'Hips, Spine, and Ankles',
-        'None of the above'
+        'Left, Right, Center',
+        'Sliding, Shuffling, Skipping',
+        'Up-Down, Side-Side, Front-Back',
+        'High, Low, Middle'
       ],
       [
         'They can be slow.',
@@ -454,22 +454,22 @@ const rankChoices = {
         'All of the above'
       ],
       [
-        'Lead with a fake kick or punch',
-        'Turn your back as fast as possible',
+        'To lead with a fake kick or punch',
+        'To turn your back as fast as possible',
         'Start the kick as he attacks',
-        'Wait until he is in range'
+        'To wait until he is in range'
       ],
       [
-        'Eight Step Fist',
-        'Five Step Fist',
-        'Chain Linked Fist',
-        'I have no Idea'
+        'Scare away your opponents',
+        'Show you understand martial arts',
+        'Show how tough you are',
+        'Influence the outcome of the fight'
       ],
       [
-        'Shu-Bu',
-        'Pu-Bu',
-        'Xie-Bu',
-        'Ji-Bu'
+        'Helps with visualization',
+        'What your eyes see, the mind focuses on',
+        'Gives movements clarity and power',
+        'All of the above'
       ],
       [
         'Deceptive and defensive',
@@ -484,10 +484,10 @@ const rankChoices = {
         'Smaller, students than ourselves'
       ],
       [
-        'Eyes, Cheek bones, and Throat',
-        'Ribs, Kidneys and Gut',
-        'Arms, Legs, and Feet',
-        'll of the above'
+        'Feet, Hands, Head',
+        'Leg Power, Waist Power, Shoulder Power',
+        'Knee, Hips, Spine',
+        'Abdoment, Solar plexus, Thorax'
       ],
       [
         'An aggressive attitude',
@@ -504,9 +504,9 @@ const rankChoices = {
         'James Mitose'
       ],
       [
-        'Internal power, speed, and accuracy',
-        'Deception, fluidity, flexibility',
-        'Surprise attack, coiling & wrapping',
+        'Crane on a Rock',
+        'Rohai',
+        'Stature of the White Crane',
         'All of the Above'
       ],
       [
@@ -522,16 +522,16 @@ const rankChoices = {
         'All of the above'
       ],
       [
-        'Snake & Crane',
-        'Crane & Dragon',
-        'Dragon & Snake',
-        'Leopard & Dragon'
+        'Nine Pieces of 8',
+        '8 Chains Fighting',
+        '8 Step Linked Ring Boxing',
+        'Eight Section Fist'
       ],
       [
-        'Naihanchi',
-        'Rohai',
-        'Heian',
-        'Tekki Shodan'
+        'YingZhua Quan & Fangzi Quan',
+        'Hong Quan & Nan Quan',
+        'Cha Quan & Tanlang Quan',
+        'Shaolin Quan & Meihua Quan'
       ],
       [
         '10, 11',
@@ -578,16 +578,16 @@ const rankChoices = {
         '“…a highly mobile stance”'
       ],
       [
-        'Palm up',
-        'Palm down',
-        'Palm vertical',
-        'Palm inverted'
+        'Sections 1-4',
+        'Sections 1-6',
+        'Sections 1-8',
+        'Sections 1-10'
       ],
       [
-        'Steps 1-4',
-        'Steps 1-6',
-        'Steps 1-8',
-        'All 10 steps'
+        'Umbrella Exhibition',
+        'Three Palm Sets',
+        '10 Blocks',
+        'Three Battles'
       ],
       [
         'Heart & Liver',
@@ -640,10 +640,10 @@ const rankChoices = {
         'Heaven and Earth'
       ],
       [
-        'Ribs, neck, face, armpits & groin',
-        'Areas along the spine',
-        'Kneecaps, Elbows, Hands & feet',
-        'All of the above'
+        'Small Forest Effort Boxing',
+        'Small Forest Rooster Boxing',
+        'Small Forest Skilled Boxing',
+        'Small Forest Palace Clothes Boxing'
       ],
       [
         '12',
@@ -664,22 +664,22 @@ const rankChoices = {
         'As close to the opponent as possible'
       ],
       [
-        'Something to be ashamed of',
-        'Erased through Sparring practice',
-        'Something one can learn to live with',
-        'Necessary to be a superior fighter'
+        'Small Forest Total Boxing',
+        'Small Forest Labour Boxing',
+        'Small Forest Public Boxing',
+        'Small Forest Power Boxing'
       ],
       [
-        '2, 3, 5, 7, 21, 26',
-        '1, 4, 6, 8, 10, 13',
-        '9, 11, 14, 15, 17',
-        'I am not sure'
+        'Meihua Quan (Plum Flower Fist)',
+        'Nan Quan (Southern Fist)',
+        'Chang Quan (Long Fist)',
+        'Fan-Zi Quan (Rotating / Tumbling Fist)'
       ],
       [
-        'They are rigid and solid',
-        'Coordinated with balance & coordination',
-        'Held with the strong side to the rear',
-        'Held in a super low squat'
+        'That it uses mustical Qi energy to fight',
+        'That it is a highly methodical, logical, and gradual practice',
+        'That it uses only explosive power',
+        'That it rapidly progresses one\'s fighting skills over a short period of time'
       ]
     ],
     BrownSt2: [
