@@ -66,7 +66,6 @@ const FillPDF = async (props) =>{
         // Sets User's Name to PDF
         testform.getTextField('Name').setText(props.Name);
         // Sets the Test Payment Check Box
-        console.log(props.PayType);
         if (props.PayType === 0){
             testform.getCheckBox('Cash').check();
         }
