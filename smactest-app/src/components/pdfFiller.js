@@ -64,23 +64,31 @@ const FillPDF = async (props) =>{
         const testform = testDoc.getForm();
     
         // Sets User's Name to PDF
-        testform.getTextField('Full Name').setText(props.Name);
+        testform.getTextField('Name').setText(props.Name);
         // Sets the Test Payment Check Box
-        testform.getCheckBox('Test Due').check(); 
+        if (props.PayType === 0){
+            testform.getCheckBox('Cash').check();
+        }
+        else if (props.PayType === 1){
+            testform.getCheckBox('EMT').check();
+        }
+        else if (props.PayType === 2){
+            testform.getCheckBox('Account').check();
+        }
         // Sets Private Test box
         if (props.PTest){
-            testform.getCheckBox("PrivateTesting").check();
+            testform.getCheckBox("PrivateTest").check();
         }
         
 
-        // Sets Applicant Agreement 1
-        if (props.Applicant1){
-            testform.getCheckBox('Applicant1').check();
-        }
-        // Sets Applicant Agreement 2
-        if (props.Applicant2){
-            testform.getCheckBox('Applicant2').check();
-        }
+        // // Sets Applicant Agreement 1
+        // if (props.Applicant1){
+        //     testform.getCheckBox('Applicant1').check();
+        // }
+        // // Sets Applicant Agreement 2
+        // if (props.Applicant2){
+        //     testform.getCheckBox('Applicant2').check();
+        // }
         // Sets User Signature
         //testform.getTextField('Signature').setText(props.Signature);
     
